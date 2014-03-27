@@ -1,28 +1,50 @@
-CREATE TABLE tbl_user (
-    id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(128) NOT NULL,
-    password VARCHAR(128) NOT NULL,
-    email VARCHAR(128) NOT NULL
-);
+-- phpMyAdmin SQL Dump
+-- version 4.0.4
+-- http://www.phpmyadmin.net
+--
+-- Хост: localhost
+-- Время создания: Мар 27 2014 г., 19:22
+-- Версия сервера: 5.6.12-log
+-- Версия PHP: 5.4.16
 
-INSERT INTO tbl_user (username, password, email) VALUES ('test1', 'pass1', 'test1@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test2', 'pass2', 'test2@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test3', 'pass3', 'test3@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test4', 'pass4', 'test4@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test5', 'pass5', 'test5@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test6', 'pass6', 'test6@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test7', 'pass7', 'test7@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test8', 'pass8', 'test8@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test9', 'pass9', 'test9@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test10', 'pass10', 'test10@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test11', 'pass11', 'test11@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test12', 'pass12', 'test12@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test13', 'pass13', 'test13@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test14', 'pass14', 'test14@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test15', 'pass15', 'test15@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test16', 'pass16', 'test16@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test17', 'pass17', 'test17@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test18', 'pass18', 'test18@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test19', 'pass19', 'test19@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test20', 'pass20', 'test20@example.com');
-INSERT INTO tbl_user (username, password, email) VALUES ('test21', 'pass21', 'test21@example.com');
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- База данных: `yii`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(60) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` tinyint(4) NOT NULL,
+  `create_time` int(11) NOT NULL,
+  `last_visit` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `create_time`, `last_visit`, `status`) VALUES
+(1, 'alexandr', 'alexandr-syrovatskii@yandex.ru', 'pass', 1, 0, 0, 1);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
