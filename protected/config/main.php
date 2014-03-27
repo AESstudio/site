@@ -18,6 +18,8 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+        'application.modules.user.*',
+        'application.modules.user.models.*',
 	),
 
 	'modules'=>array(
@@ -38,6 +40,7 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+            'class' => 'WebUser',
 		),
 		'urlManager'=>array(
 			'urlFormat'=>'path',
@@ -55,6 +58,10 @@ return array(
 			'password' => 'pass123',
 			'charset' => 'utf8',
 		),
+        'authManager' => array(
+            'class' => 'PhpAuthManager',
+            'defaultRoles' => array('guest'),
+        ),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
