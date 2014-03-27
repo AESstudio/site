@@ -1,0 +1,10 @@
+.idea
+assets/*
+!assets/.gitignore
+framework/*
+!framework/.gitignore
+protected/runtime/*
+!protected/runtime/.gitignore
+protected/data/*.db
+protected/tests/report/*
+!protected/tests/report/.gitignore
