@@ -23,14 +23,6 @@ return array(
 	),
 
 	'modules'=>array(
-		'gii'=>array(
-			'class'=>'system.gii.GiiModule',
-			'password'=>false,
-			'ipFilters'=>array('127.0.0.1','::1'),
-            'generatorPaths'=>array(
-                'bootstrap.gii',
-            ),
-		),
         'admin',
         'user',
 	),
@@ -51,13 +43,6 @@ return array(
                 'logout'=>'user/login/logout'
 			),
 		),
-		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=yii',
-			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => 'pass123',
-			'charset' => 'utf8',
-		),
         'authManager' => array(
             'class' => 'PhpAuthManager',
             'defaultRoles' => array('guest'),
@@ -65,21 +50,6 @@ return array(
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
-		),
-		'log'=>array(
-			'class'=>'CLogRouter',
-			'routes'=>array(
-				array(
-					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
-				),
-				// uncomment the following to show log messages on web pages
-				/*
-				array(
-					'class'=>'CWebLogRoute',
-				),
-				*/
-			),
 		),
         'bootstrap'=>array(
             'class'=>'bootstrap.components.Bootstrap',

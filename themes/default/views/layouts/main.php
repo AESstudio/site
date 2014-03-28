@@ -19,9 +19,10 @@
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
-                array('label'=>'Home', 'url'=>array('/')),
+                array('label'=>'Home', 'url'=>'/'),
                 array('label'=>'Login', 'url'=>array('/login'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Панель управления', 'url' => array('/admin'), 'visible' => Yii::app()->user->checkAccess('3')),
             ),
         ),
     ),
