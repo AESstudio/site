@@ -1,10 +1,17 @@
 <?php
 
-class DefaultController extends AdminController
+class AdminController extends SAdminController
 {
 
     public $brand='Пользователи';
-    public $brandUrl='/admin/user';
+    public $brandUrl='/admin/user/admin';
+
+    public function init()
+    {
+        parent::init();
+        Yii::app()->errorHandler->errorAction='/admin/default/error';
+    }
+
 	/**
 	 * @return array action filters
 	 */
@@ -24,17 +31,29 @@ class DefaultController extends AdminController
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
+				'actions'=>array('index'),
+				'roles'=>array('indexUserAdmin'),
 			),
+            array('allow',  // allow all users to perform 'index' and 'view' actions
+                'actions'=>array('view'),
+                'roles'=>array('viewUserAdmin'),
+            ),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
+				'actions'=>array('create'),
+				'roles'=>array('createUserAdmin'),
 			),
+            array('allow', // allow authenticated user to perform 'create' and 'update' actions
+                'actions'=>array('update'),
+                'roles'=>array('updateUserAdmin'),
+            ),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+				'actions'=>array('admin'),
+				'roles'=>array('adminUserAdmin'),
 			),
+            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+                'actions'=>array('delete'),
+                'roles'=>array('deleteUserAdmin'),
+            ),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -120,17 +139,28 @@ class DefaultController extends AdminController
 	}
 
 
+    /**
+     * Lists all models.
+     */
+    public function actionIndex()
+    {
+        $dataProvider=new CActiveDataProvider('User');
+        $this->render('index',array(
+            'dataProvider'=>$dataProvider,
+        ));
+    }
+
 	/**
 	 * Manages all models.
 	 */
-	public function actionIndex()
+	public function actionAdmin()
 	{
 		$model=new User('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['User']))
 			$model->attributes=$_GET['User'];
 
-		$this->render('index',array(
+		$this->render('admin',array(
 			'model'=>$model,
 		));
 	}

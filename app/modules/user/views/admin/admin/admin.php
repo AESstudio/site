@@ -1,6 +1,7 @@
 <?php
 $this->menu=array(
-	array('label'=>'Создать пользователя','icon'=>'plus-sign','url'=>array('create')),
+    array('label'=>'Список','icon'=>'list','url'=>array('index')),
+	array('label'=>'Создать','icon'=>'plus-sign','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -24,7 +25,10 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
+        array(
+            'header' => '№',
+            'value' => '$row+1',
+        ),
 		'username',
 		'email',
 		'role',

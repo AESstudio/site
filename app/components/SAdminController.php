@@ -6,7 +6,7 @@
  * Time: 21:37
  */
 
-class AdminController extends CController
+class SAdminController extends CController
 {
     public $layout='application.modules.admin.views.layouts.main';
 

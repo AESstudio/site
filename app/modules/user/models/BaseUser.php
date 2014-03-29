@@ -31,7 +31,7 @@ class BaseUser extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, email, password, role, create_time, last_visit, status', 'required'),
+			array('username, email, password', 'required'),
 			array('role, create_time, last_visit, status', 'numerical', 'integerOnly'=>true),
 			array('username', 'length', 'max'=>60),
 			array('email', 'length', 'max'=>100),
@@ -60,7 +60,7 @@ class BaseUser extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'username' => 'Логие',
+			'username' => 'Логин',
 			'email' => 'Email',
 			'password' => 'Пароль',
 			'role' => 'Роль',

@@ -20,9 +20,6 @@ class User extends BaseUser
      */
     public function beforeSave()
     {
-        // Set new password
-        if ($this->new_password)
-            $this->password = User::encodePassword($this->new_password);
         if($this->isNewRecord)
         {
             if(!$this->create_time)

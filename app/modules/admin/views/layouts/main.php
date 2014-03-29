@@ -25,6 +25,13 @@
             array(
                 'class' => 'bootstrap.widgets.TbMenu',
                 'items' => array(
+                    array('label' => 'Пользователи', 'url' => '/admin/user/admin'),
+                ),
+            ),
+            array(
+                'class' => 'bootstrap.widgets.TbMenu',
+                'htmlOptions'=>array('class'=>'pull-right'),
+                'items' => array(
                     array('label' => 'К сайту', 'url' => '/'),
                     array('label' => 'Выйти (' . Yii::app()->user->name . ')', 'url' => array('/logout'), 'visible' => !Yii::app()->user->isGuest)
                 ),
@@ -35,6 +42,7 @@
 
 <div class="container" id="page">
 
+    <?php if (isset($this->brand) && isset($this->brandUrl)): ?>
     <div class="navbar">
         <div class="navbar-inner">
             <?php if (isset($this->brand)): ?>
@@ -47,6 +55,7 @@
             )); ?>
         </div>
     </div>
+    <?php endif ?>
 
     <?php echo $content; ?>
 

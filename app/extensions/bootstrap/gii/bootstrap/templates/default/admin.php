@@ -14,8 +14,8 @@ echo "\$this->breadcrumbs=array(
 ?>
 
 $this->menu=array(
-	array('label'=>'List <?php echo $this->modelClass; ?>','url'=>array('index')),
-	array('label'=>'Create <?php echo $this->modelClass; ?>','url'=>array('create')),
+	array('label'=>'Список <?php echo $this->modelClass; ?>','icon'=>'list','url'=>array('index')),
+	array('label'=>'Создать <?php echo $this->modelClass; ?>','icon'=>'plus-sign','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -32,7 +32,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage <?php echo $this->pluralize($this->class2name($this->modelClass)); ?></h1>
+<h2>Управление <?php echo $this->pluralize($this->class2name($this->modelClass)); ?></h2>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

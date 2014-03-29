@@ -23,7 +23,7 @@
                 array('label'=>'Войти', 'url'=>array('/login'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Регистрация', 'url'=>array('/register'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/logout'), 'visible'=>!Yii::app()->user->isGuest),
-                array('label'=>'Панель управления', 'url' => array('/admin'), 'visible' => Yii::app()->user->checkAccess('3')),
+                array('label'=>'Панель управления', 'url' => array('/admin'), 'visible' => Yii::app()->user->checkAccess('1')),
             ),
         ),
     ),
