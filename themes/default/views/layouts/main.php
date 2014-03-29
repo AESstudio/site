@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="language" content="en" />
+	<meta name="language" content="ru" />
 
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/styles.css" />
 
@@ -20,8 +20,9 @@
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
                 array('label'=>'Home', 'url'=>'/'),
-                array('label'=>'Login', 'url'=>array('/login'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/logout'), 'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Войти', 'url'=>array('/login'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Регистрация', 'url'=>array('/register'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Выйти ('.Yii::app()->user->name.')', 'url'=>array('/logout'), 'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Панель управления', 'url' => array('/admin'), 'visible' => Yii::app()->user->checkAccess('3')),
             ),
         ),

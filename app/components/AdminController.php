@@ -17,7 +17,12 @@ class AdminController extends CController
     public $menu=array();
 
     /**
-     * @var array
+     * @var string
      */
-    public $breadcrumbs=array();
+    public $brand;
+
+    /**
+     * @var string
+     */
+    public $brandUrl;
 }

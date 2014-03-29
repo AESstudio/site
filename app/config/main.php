@@ -33,15 +33,12 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
             'class' => 'WebUser',
+            'loginUrl' => array('/login'),
 		),
 		'urlManager'=>array(
 			'urlFormat'=>'path',
             'showScriptName'=>false,
-			'rules'=>array(
-                ''=>'site/index',
-                'login'=>'user/login',
-                'logout'=>'user/login/logout'
-			),
+            'rules' => require(dirname(__FILE__).'/routes.php'),
 		),
         'authManager' => array(
             'class' => 'PhpAuthManager',

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="language" content="en"/>
+    <meta name="language" content="ru"/>
 
     <link rel="stylesheet" type="text/css"
           href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/admin/styles.css"/>
@@ -16,28 +16,37 @@
 
 <body>
 
-<?php $this->widget('bootstrap.widgets.TbNavbar', array(
-    'type' => 'inverse',
-    'brand' => 'Админ панель',
-    'brandUrl' => '/admin',
-    'items' => array(
-        array(
-            'class' => 'bootstrap.widgets.TbMenu',
-            'items' => array(
-                array('label' => 'К сайту', 'url' => array('/site/index')),
-                array('label' => 'Выйти (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
+<?php
+    $this->widget('bootstrap.widgets.TbNavbar', array(
+        'type' => 'inverse',
+        'brand' => 'Админ панель',
+        'brandUrl' => '/admin',
+        'items' => array(
+            array(
+                'class' => 'bootstrap.widgets.TbMenu',
+                'items' => array(
+                    array('label' => 'К сайту', 'url' => '/'),
+                    array('label' => 'Выйти (' . Yii::app()->user->name . ')', 'url' => array('/logout'), 'visible' => !Yii::app()->user->isGuest)
+                ),
             ),
         ),
-    ),
-)); ?>
+    ));
+?>
 
 <div class="container" id="page">
 
-    <?php if (isset($this->breadcrumbs)): ?>
-        <?php $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-    <?php endif ?>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <?php if (isset($this->brand)): ?>
+                <a class="brand" href="<?php echo $this->brandUrl; ?>"><?php echo $this->brand; ?></a>
+            <?php endif ?>
+            <?php $this->widget('bootstrap.widgets.TbMenu', array(
+                'type' => 'pills',
+                'htmlOptions'=>array('class'=>'pull-right'),
+                'items' => $this->menu,
+            )); ?>
+        </div>
+    </div>
 
     <?php echo $content; ?>
 

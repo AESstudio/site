@@ -7,11 +7,11 @@
 return array(
     'guest' => array(
         'type' => CAuthItem::TYPE_ROLE,
-        'description' => 'Guest',
+        'description' => 'Гость',
         'bizRule' => null,
         'data' => null
     ),
-    '4' => array(
+    '0' => array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Пользователь',
         'children' => array(
@@ -24,7 +24,7 @@ return array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Модератор',
         'children' => array(
-            '4',
+            '0',
         ),
         'bizRule' => null,
         'data' => null
