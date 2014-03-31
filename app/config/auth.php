@@ -9,7 +9,7 @@ return array(
     /* Разрешения */
 
     'adminPanel' => array(
-        'type' => CAuthItem::TYPE_OPERATION,
+        'type' => 0,    //CAuthItem::TYPE_OPERATION
         'description' => 'Доступ в админ панель',
         'bizRule' => null,
         'data' => null
@@ -17,37 +17,37 @@ return array(
 
     // Module User
         'indexUserAdmin' => array(
-            'type' => CAuthItem::TYPE_OPERATION,
+            'type' => 0,
             'description' => 'Доступ к списку пользователей',
             'bizRule' => null,
             'data' => null
         ),
         'viewUserAdmin' => array(
-            'type' => CAuthItem::TYPE_OPERATION,
+            'type' => 0,
             'description' => 'Доступ к просмотру пользователя',
             'bizRule' => null,
             'data' => null
         ),
         'createUserAdmin' => array(
-            'type' => CAuthItem::TYPE_OPERATION,
+            'type' => 0,
             'description' => 'Доступ к созданию пользователей',
             'bizRule' => null,
             'data' => null
         ),
         'updateUserAdmin' => array(
-            'type' => CAuthItem::TYPE_OPERATION,
+            'type' => 0,
             'description' => 'Доступ к редактированию пользователей',
             'bizRule' => null,
             'data' => null
         ),
         'adminUserAdmin' => array(
-            'type' => CAuthItem::TYPE_OPERATION,
+            'type' => 0,
             'description' => 'Доступ к управлению пользователей',
             'bizRule' => null,
             'data' => null
         ),
         'deleteUserAdmin' => array(
-            'type' => CAuthItem::TYPE_OPERATION,
+            'type' => 0,
             'description' => 'Доступ к удалению пользователей',
             'bizRule' => null,
             'data' => null
@@ -55,52 +55,52 @@ return array(
 
     /* Роли */
     'guest' => array(
-        'type' => CAuthItem::TYPE_ROLE,
+        'type' => 2,    //TYPE_ROLE
         'description' => 'Гость',
         'bizRule' => null,
         'data' => null
     ),
-    '0' => array(
-        'type' => CAuthItem::TYPE_ROLE,
+    0 => array(
+        'type' => 2,
         'description' => 'Пользователь',
-        'children' => array(
-            'guest', // унаследуемся от гостя
-        ),
         'bizRule' => null,
-        'data' => null
+        'data' => null,
+        'children' => array(
+            0 => 'guest', // унаследуемся от гостя
+        ),
     ),
-    '1' => array(
-        'type' => CAuthItem::TYPE_ROLE,
+    3 => array(
+        'type' => 2,
         'description' => 'Модератор',
-        'children' => array(
-            '0',
-            'adminPanel',
-            'indexUserAdmin',
-            'viewUserAdmin'
-        ),
         'bizRule' => null,
-        'data' => null
+        'data' => null,
+        'children' => array(
+            0 => 0,
+            1 => 'adminPanel',
+            2 => 'indexUserAdmin',
+            3 => 'viewUserAdmin'
+        ),
     ),
-    '2' => array(
-        'type' => CAuthItem::TYPE_ROLE,
+    1 => array(
+        'type' => 2,
         'description' => 'Администратор',
-        'children' => array(
-            '1',
-            'createUserAdmin',
-            'updateUserAdmin',
-            'adminUserAdmin'
-        ),
         'bizRule' => null,
-        'data' => null
+        'data' => null,
+        'children' => array(
+            0 => 3,
+            1 => 'createUserAdmin',
+            2 => 'updateUserAdmin',
+            3 => 'adminUserAdmin',
+            4 => 'deleteUserAdmin'
+        ),
     ),
-    '3' => array(
-        'type' => CAuthItem::TYPE_ROLE,
+    2 => array(
+        'type' => 2,
         'description' => 'Супер Администратор',
-        'children' => array(
-            '2',
-            'deleteUserAdmin'
-        ),
         'bizRule' => null,
-        'data' => null
+        'data' => null,
+        'children' => array(
+            0 => 1,
+        ),
     ),
 );

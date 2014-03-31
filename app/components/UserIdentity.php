@@ -13,7 +13,7 @@ class UserIdentity extends CUserIdentity {
     public function authenticate(){
         // Производим стандартную аутентификацию, описанную в руководстве.
         $user = User::model()->find('LOWER(username)=?', array(strtolower($this->username)));
-        if(($user===null) || ($this->password)!==$user->password) {
+        if(($user===null) || (User::PasswordHash($this->password))!==$user->password) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         } else {
             // В качестве идентификатора будем использовать id, а не username

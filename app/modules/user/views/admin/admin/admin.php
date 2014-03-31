@@ -31,10 +31,18 @@ $('.search-form form').submit(function(){
         ),
 		'username',
 		'email',
-		'role',
+        array(
+            'name' => 'role',
+            'value' => 'User::itemAlias("UserRole",$data->role)',
+            'filter' => User::itemAlias("UserRole"),
+        ),
 		'create_time',
 		'last_visit',
-		'status',
+        array(
+            'name' => 'status',
+            'value' => 'User::itemAlias("UserStatus",$data->status)',
+            'filter' => User::itemAlias("UserStatus"),
+        ),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),

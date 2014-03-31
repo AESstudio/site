@@ -5,15 +5,15 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldRow($model,'username',array('class'=>'span5','maxlength'=>60)); ?>
+	<?php echo $form->textFieldRow($model,'username',array('maxlength'=>60)); ?>
 
-	<?php echo $form->textFieldRow($model,'email',array('class'=>'span5','maxlength'=>100)); ?>
+	<?php echo $form->textFieldRow($model,'email',array('maxlength'=>100)); ?>
 
-	<?php echo $form->passwordFieldRow($model,'password',array('class'=>'span5','maxlength'=>255)); ?>
+	<?php if($model->isNewRecord)echo $form->passwordFieldRow($model,'password',array('maxlength'=>255)); ?>
 
-	<?php echo $form->textFieldRow($model,'role',array('class'=>'span5')); ?>
+    <?php echo $form->dropDownListRow($model, 'role', User::itemAlias('UserRole') ,array('prompt' => 'Выберите роль')); ?>
 
-	<?php echo $form->textFieldRow($model,'status',array('class'=>'span5')); ?>
+    <?php echo $form->dropDownListRow($model, 'status', User::itemAlias('UserStatus') ,array('prompt' => 'Выберите статус')); ?>
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
