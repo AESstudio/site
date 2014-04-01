@@ -1,15 +1,11 @@
 <?php
-$this->breadcrumbs=array(
-	'Pages',
-);
-
 $this->menu=array(
-	array('label'=>'Create Pages','url'=>array('create')),
-	array('label'=>'Manage Pages','url'=>array('admin')),
+	array('label'=>'Создать страницу','icon'=>'plus-sign','url'=>array('create')),
+	array('label'=>'Управление страницами','icon'=>'wrench','url'=>array('admin')),
 );
 ?>
 
-<h1>Pages</h1>
+<h2>Страницы</h2>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,

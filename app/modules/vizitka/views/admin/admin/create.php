@@ -1,9 +1,4 @@
 <?php
-$this->breadcrumbs=array(
-	'Pages'=>array('index'),
-	'Create',
-);
-
 $this->menu=array(
 	array('label'=>'List Pages','url'=>array('index')),
 	array('label'=>'Manage Pages','url'=>array('admin')),

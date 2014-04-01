@@ -18,6 +18,12 @@
  */
 class Pages extends CActiveRecord
 {
+    /*
+     * Статусы страниц
+     * */
+    const STATUS_INACTIVE = 0;
+    const STATUS_ACTIVE = 1;
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -25,6 +31,34 @@ class Pages extends CActiveRecord
 	{
 		return 'vizitka_pages';
 	}
+
+    public static function itemAlias($type, $code = NULL)
+    {
+        $_items = array(
+            'PageStatus' => array(
+                self::STATUS_ACTIVE => 'Активна',
+                self::STATUS_INACTIVE => 'Не активна',
+            ),
+        );
+        if (isset($code))
+            return isset($_items[$type][$code]) ? $_items[$type][$code] : false;
+        else
+            return isset($_items[$type]) ? $_items[$type] : false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function beforeSave()
+    {
+        if($this->isNewRecord)
+        {
+            $date = date('Y-m-d H:i:s');
+            $this->created = $date;
+            $this->updated = $date;
+        }
+        return parent::beforeSave();
+    }
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -61,16 +95,16 @@ class Pages extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'author' => 'Author',
-			'title' => 'Title',
-			'url' => 'Url',
-			'created' => 'Created',
-			'updated' => 'Updated',
-			'content' => 'Content',
-			'status' => 'Status',
-			'meta_title' => 'Meta Title',
-			'meta_description' => 'Meta Description',
-			'meta_keywords' => 'Meta Keywords',
+			'author' => 'Автор',
+			'title' => 'Заголовок',
+			'url' => 'URL',
+			'created' => 'Создана',
+			'updated' => 'Обновлена',
+			'content' => 'Содержание',
+			'status' => 'Статус',
+			'meta_title' => 'Title',
+			'meta_description' => 'Description',
+			'meta_keywords' => 'Keywords',
 		);
 	}
 

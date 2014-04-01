@@ -30,27 +30,27 @@ class AdminController extends SAdminController
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+			array('allow',  // allow all roles to perform 'index' actions
 				'actions'=>array('index'),
 				'roles'=>array('indexUserAdmin'),
 			),
-            array('allow',  // allow all users to perform 'index' and 'view' actions
+            array('allow',  // allow all roles to perform 'view' actions
                 'actions'=>array('view'),
                 'roles'=>array('viewUserAdmin'),
             ),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+            array('allow',  // allow all roles to perform 'create' actions
 				'actions'=>array('create'),
 				'roles'=>array('createUserAdmin'),
 			),
-            array('allow', // allow authenticated user to perform 'create' and 'update' actions
+            array('allow',  // allow all roles to perform 'update' actions
                 'actions'=>array('update'),
                 'roles'=>array('updateUserAdmin'),
             ),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+            array('allow',  // allow all roles to perform 'admin' actions
 				'actions'=>array('admin'),
 				'roles'=>array('adminUserAdmin'),
 			),
-            array('allow', // allow admin user to perform 'admin' and 'delete' actions
+            array('allow',  // allow all roles to perform 'delete' actions
                 'actions'=>array('delete'),
                 'roles'=>array('deleteUserAdmin'),
             ),

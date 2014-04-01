@@ -1,9 +1,4 @@
 <?php
-$this->breadcrumbs=array(
-	'Pages'=>array('index'),
-	$model->title,
-);
-
 $this->menu=array(
 	array('label'=>'Список Pages','icon'=>'list','url'=>array('index')),
 	array('label'=>'Создать Pages','icon'=>'plus-sign','url'=>array('create')),

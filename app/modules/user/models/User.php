@@ -47,7 +47,7 @@ class User extends BaseUser
         $_items = array(
             'UserStatus' => array(
                 self::STATUS_ACTIVE => 'Активен',
-                self::STATUS_INACTIVE => 'Неактивен',
+                self::STATUS_INACTIVE => 'Не активен',
                 self::STATUS_BANNED => 'Забанен'
             ),
             'UserRole' => array(

@@ -1,13 +1,16 @@
 <?php
 
-class AdminController extends Controller
+class AdminController extends SAdminController
 {
-	/**
-	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-	 * using two-column layout. See 'protected/views/layouts/column2.php'.
-	 */
-	public $layout='//layouts/column2';
 
+    public $brand='Страницы сайта';
+    public $brandUrl='/admin/vizitka/admin';
+
+    public function init()
+    {
+        parent::init();
+        Yii::app()->errorHandler->errorAction='/admin/default/error';
+    }
 	/**
 	 * @return array action filters
 	 */
@@ -26,21 +29,33 @@ class AdminController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
+            array('allow',  // allow all roles to perform 'index' actions
+                'actions'=>array('index'),
+                'roles'=>array('indexVizitkaAdmin'),
+            ),
+            array('allow',  // allow all roles to perform 'view' actions
+                'actions'=>array('view'),
+                'roles'=>array('viewVizitkaAdmin'),
+            ),
+            array('allow',  // allow all roles to perform 'create' actions
+                'actions'=>array('create'),
+                'roles'=>array('createVizitkaAdmin'),
+            ),
+            array('allow',  // allow all roles to perform 'update' actions
+                'actions'=>array('update'),
+                'roles'=>array('updateVizitkaAdmin'),
+            ),
+            array('allow',  // allow all roles to perform 'admin' actions
+                'actions'=>array('admin'),
+                'roles'=>array('adminVizitkaAdmin'),
+            ),
+            array('allow',  // allow all roles to perform 'delete' actions
+                'actions'=>array('delete'),
+                'roles'=>array('deleteVizitkaAdmin'),
+            ),
+            array('deny',  // deny all users
+                'users'=>array('*'),
+            ),
 		);
 	}
 

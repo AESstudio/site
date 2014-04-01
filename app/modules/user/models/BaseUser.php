@@ -34,7 +34,9 @@ class BaseUser extends CActiveRecord
             // Логин [[username]]
             array('username','required','on'=>array('register', 'admin-create', 'admin-update')),
             array('username','match','pattern'=>'/^[a-zA-Z0-9_-]+$/',
-                'message' => 'Недопустимый логин. </br>Логин может состоять из латинских символов, цифр, дефиса или нижнего подчеркивания.','on'=>array('register', 'admin-create', 'admin-update')),
+                'message' => 'Недопустимый логин. </br>Логин может состоять из латинских символов,
+                цифр, дефиса или нижнего подчеркивания.',
+                'on'=>array('register', 'admin-create', 'admin-update')),
             array('username','length','min'=>3,'max'=>50,'on'=>array('register', 'admin-create', 'admin-update')),
             array('username','unique','on'=>array('register', 'admin-create', 'admin-update')),
 

@@ -4,7 +4,10 @@
  * Date: 27.03.14
  * Time: 22:06
  */
-return array(
+$moduleUser = require(dirname(__FILE__).'/authModule/moduleUser.php');
+$moduleVizitka = require(dirname(__FILE__).'/authModule/moduleVizitka.php');
+
+$auth = array(
 
     /* Разрешения */
 
@@ -15,43 +18,6 @@ return array(
         'data' => null
     ),
 
-    // Module User
-        'indexUserAdmin' => array(
-            'type' => 0,
-            'description' => 'Доступ к списку пользователей',
-            'bizRule' => null,
-            'data' => null
-        ),
-        'viewUserAdmin' => array(
-            'type' => 0,
-            'description' => 'Доступ к просмотру пользователя',
-            'bizRule' => null,
-            'data' => null
-        ),
-        'createUserAdmin' => array(
-            'type' => 0,
-            'description' => 'Доступ к созданию пользователей',
-            'bizRule' => null,
-            'data' => null
-        ),
-        'updateUserAdmin' => array(
-            'type' => 0,
-            'description' => 'Доступ к редактированию пользователей',
-            'bizRule' => null,
-            'data' => null
-        ),
-        'adminUserAdmin' => array(
-            'type' => 0,
-            'description' => 'Доступ к управлению пользователей',
-            'bizRule' => null,
-            'data' => null
-        ),
-        'deleteUserAdmin' => array(
-            'type' => 0,
-            'description' => 'Доступ к удалению пользователей',
-            'bizRule' => null,
-            'data' => null
-        ),
 
     /* Роли */
     'guest' => array(
@@ -78,7 +44,13 @@ return array(
             0 => 0,
             1 => 'adminPanel',
             2 => 'indexUserAdmin',
-            3 => 'viewUserAdmin'
+            3 => 'viewUserAdmin',
+            4 => 'indexVizitkaAdmin',
+            5 => 'viewVizitkaAdmin',
+            6 => 'createVizitkaAdmin',
+            7 => 'updateVizitkaAdmin',
+            8 => 'adminVizitkaAdmin',
+            9 => 'deleteVizitkaAdmin'
         ),
     ),
     1 => array(
@@ -104,3 +76,11 @@ return array(
         ),
     ),
 );
+
+$result = array_merge(
+    $moduleUser,
+    $moduleVizitka,
+    $auth
+);
+
+return $result;
