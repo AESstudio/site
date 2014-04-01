@@ -31,14 +31,41 @@ class BaseUser extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, email, password', 'required'),
+            // Логин [[username]]
+            array('username','required','on'=>array('register', 'admin-create', 'admin-update')),
+            array('username','match','pattern'=>'/^[a-zA-Z0-9_-]+$/',
+                'message' => 'Недопустимый логин. </br>Логин может состоять из латинских символов, цифр, дефиса или нижнего подчеркивания.','on'=>array('register', 'admin-create', 'admin-update')),
+            array('username','length','min'=>3,'max'=>50,'on'=>array('register', 'admin-create', 'admin-update')),
+            array('username','unique','on'=>array('register', 'admin-create', 'admin-update')),
+
+            // E-mail [[email]]
+            array('email','required','on'=>array('register', 'admin-create', 'admin-update')),
+            array('email','email','on'=>array('register', 'admin-create', 'admin-update')),
+            array('email','length','max'=>100,'on'=>array('register', 'admin-create', 'admin-update')),
+            array('email','unique','on'=>array('register', 'admin-create', 'admin-update')),
+
+            // Пароль [[password]]
+            array('password','required','on'=>array('register', 'admin-create', 'admin-update')),
+            array('password','length','min'=>4,'max'=>50,'on'=>array('register', 'admin-create', 'admin-update')),
+
+            // Подтверждение пароля [[repassword]]
+            array('repassword','required','on'=>array('register', 'admin-create', 'admin-update')),
+            array('repassword','compare','compareAttribute'=>'password',
+                'message' => "Пароли не совпадают.",
+                'on'=>array('register', 'admin-create', 'admin-update')
+            ),
+
+            // Роль [[role]]
+            array('role','in','range'=>array_keys(User::itemAlias('UserRole')),'on'=>array('admin-create', 'admin-update')),
+
+            // Статус [[status]]
+            array('status','in','range'=>array_keys(User::itemAlias('UserStatus')),'on'=>array('admin-create', 'admin-update')),
+
+            ///////////////////////
 			array('role, create_time, last_visit, status', 'numerical', 'integerOnly'=>true),
-			array('username', 'length', 'max'=>60),
-			array('email', 'length', 'max'=>100),
-			array('password', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, username, email, password, role, create_time, last_visit, status', 'safe', 'on'=>'search'),
+			array('id, username, email, role, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,6 +90,7 @@ class BaseUser extends CActiveRecord
 			'username' => 'Логин',
 			'email' => 'Email',
 			'password' => 'Пароль',
+            'repassword' => 'Подтверждение пароля',
 			'role' => 'Роль',
 			'create_time' => 'Дата создания',
 			'last_visit' => 'Последний визит',

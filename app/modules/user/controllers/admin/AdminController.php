@@ -77,7 +77,7 @@ class AdminController extends SAdminController
 	 */
 	public function actionCreate()
 	{
-		$model=new User;
+		$model=new User('admin-create');
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -102,6 +102,7 @@ class AdminController extends SAdminController
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
+        $model->setScenario('admin-update');
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

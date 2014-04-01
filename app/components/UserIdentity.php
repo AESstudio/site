@@ -18,7 +18,8 @@ class UserIdentity extends CUserIdentity {
         } else {
             // В качестве идентификатора будем использовать id, а не username
             $this->_id = $user->id;
-
+            $user->last_visit = date('Y-m-d H:i:s');
+            $user->save(false);
             // Далее логин нам не понадобится, зато имя может пригодится
             // в самом приложении. Используется как Yii::app()->user->name.
             $this->username = $user->username;

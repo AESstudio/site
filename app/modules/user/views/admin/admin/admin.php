@@ -21,6 +21,7 @@ $('.search-form form').submit(function(){
 <h2>Управление пользователями</h2>
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
+    'type'=>'striped bordered condensed',
 	'id'=>'user-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,

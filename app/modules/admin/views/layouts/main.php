@@ -26,6 +26,7 @@
                 'class' => 'bootstrap.widgets.TbMenu',
                 'items' => array(
                     array('label' => 'Пользователи', 'url' => '/admin/user/admin'),
+                    array('label' => 'Визитка стр', 'url' => '/admin/vizitka/admin'),
                 ),
             ),
             array(

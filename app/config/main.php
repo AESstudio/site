@@ -25,6 +25,7 @@ return array(
 	'modules'=>array(
         'admin',
         'user',
+        'vizitka',
 	),
 
 	// application components

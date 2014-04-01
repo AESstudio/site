@@ -24,8 +24,12 @@ class User extends BaseUser
      */
     const PASSWORD_PREFIX = 'ChIrIcA';
 
-    public $verifyCode;
-    public $mewPassword;
+    /**
+     * Переменная используется для сбора пользовательской информации, но не сохраняется в базу.
+     * @var string $repassword Повторный пароль
+     */
+    public $repassword;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
@@ -64,7 +68,7 @@ class User extends BaseUser
      *
      * @param string $password
      */
-    public function PasswordHash($password){
+    public static function PasswordHash($password){
         return md5(self::PASSWORD_PREFIX.$password);
     }
 
