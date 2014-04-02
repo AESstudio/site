@@ -1,7 +1,7 @@
 <?php
 $this->menu=array(
-	array('label'=>'Список Pages','icon'=>'list','url'=>array('index')),
-	array('label'=>'Создать Pages','icon'=>'plus-sign','url'=>array('create')),
+	array('label'=>'Список','icon'=>'list','url'=>array('index')),
+	array('label'=>'Создать','icon'=>'plus-sign','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,38 +18,37 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h2>Управление Pages</h2>
+<h2>Управление Страницами</h2>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'pages-grid',
+    'type'=>'striped bordered condensed',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
-		'author',
+        array(
+            'header' => '№',
+            'value' => '$row+1',
+        ),
+        array(
+            'name' => 'author',
+            'value' => '$data->author_name->username',
+            'filter' => User::all(),
+        ),
 		'title',
 		'url',
 		'created',
 		'updated',
-		/*
-		'content',
-		'status',
-		'meta_title',
-		'meta_description',
-		'meta_keywords',
-		*/
+		//'content',
+        array(
+            'name' => 'status',
+            'value' => 'Pages::itemAlias("PagesStatus",$data->status)',
+            'filter' => Pages::itemAlias("PagesStatus"),
+        ),
+		//'meta_title',
+		//'meta_description',
+		//'meta_keywords',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),

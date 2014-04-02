@@ -35,7 +35,7 @@ class Pages extends CActiveRecord
     public static function itemAlias($type, $code = NULL)
     {
         $_items = array(
-            'PageStatus' => array(
+            'PagesStatus' => array(
                 self::STATUS_ACTIVE => 'Активна',
                 self::STATUS_INACTIVE => 'Не активна',
             ),
@@ -51,12 +51,17 @@ class Pages extends CActiveRecord
      */
     public function beforeSave()
     {
+        $date = date('Y-m-d H:i:s');
+
         if($this->isNewRecord)
         {
-            $date = date('Y-m-d H:i:s');
             $this->created = $date;
             $this->updated = $date;
         }
+
+        $this->updated = $date;
+        $this->author = Yii::app()->user->id;
+
         return parent::beforeSave();
     }
 
@@ -68,25 +73,54 @@ class Pages extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('author, title, url, created, updated, content, status, meta_title, meta_description, meta_keywords', 'required'),
-			array('author, status', 'numerical', 'integerOnly'=>true),
-			array('title, url, meta_title, meta_description, meta_keywords', 'length', 'max'=>255),
+            // Автор [[author]]
+            array('author','numerical'),
+            // Заголовок [[title]]
+            array('title','required'),
+            array('title','length','max'=>255),
+            // URL [[url]]
+            array('url', 'ext.translist.LocoTranslitFilter', 'translitAttribute' => 'title'),
+            array('username','match','pattern'=>'/^[a-zA-Z0-9_-]+$/',
+                'message' => 'Недопустимый логин. </br>Логин может состоять из латинских символов,
+                цифр, дефиса или нижнего подчеркивания.',
+                'on'=>array('register', 'admin-create', 'admin-update')),
+            array('url','length','max'=>255),
+            // Дата создания [[created]]
+            //array('created','date'),
+            // Дата редактирования [[updated]]
+            //array('updated','date'),
+            // Содержание страницы [[status]]
+            array('content','required'),
+            array('content','length','max'=>16777215),
+            // Статус страницы [[status]]
+            array('status','numerical'),
+            // Мета данные [[meta_title]]
+            array('meta_title','required'),
+            array('meta_title','length','max'=>255),
+            // Мета данные [[meta_description]]
+            array('meta_description','required'),
+            array('meta_description','length','max'=>255),
+            // Мета данные [[meta_keywords]]
+            array('meta_keywords','required'),
+            array('meta_keywords','length','max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, author, title, url, created, updated, content, status, meta_title, meta_description, meta_keywords', 'safe', 'on'=>'search'),
 		);
 	}
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-		);
-	}
+
+    /**
+     * @return array relational rules.
+     */
+    public function relations()
+    {
+        // NOTE: you may need to adjust the relation name and the related
+        // class name for the relations automatically generated below.
+        return array(
+            'author_name' => array(self::BELONGS_TO, 'User', 'author'),
+        );
+    }
 
 	/**
 	 * @return array customized attribute labels (name=>label)
@@ -97,14 +131,14 @@ class Pages extends CActiveRecord
 			'id' => 'ID',
 			'author' => 'Автор',
 			'title' => 'Заголовок',
-			'url' => 'URL',
+			'url' => 'Адрес страницы (URL)',
 			'created' => 'Создана',
 			'updated' => 'Обновлена',
 			'content' => 'Содержание',
 			'status' => 'Статус',
-			'meta_title' => 'Title',
-			'meta_description' => 'Description',
-			'meta_keywords' => 'Keywords',
+			'meta_title' => 'Заголовок страницы (TITLE)',
+			'meta_description' => 'Описание страницы (DESCRIPTION)',
+			'meta_keywords' => 'Ключевые слова (KEYWORDS)',
 		);
 	}
 

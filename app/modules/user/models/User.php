@@ -96,4 +96,10 @@ class User extends BaseUser
         }
         return parent::beforeSave();
     }
+
+
+    public static function all()
+    {
+        return CHtml::listData(self::model()->findAll(), 'id', 'username');
+    }
 }

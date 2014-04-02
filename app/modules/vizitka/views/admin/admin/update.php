@@ -1,9 +1,9 @@
 <?php
 $this->menu=array(
-	array('label'=>'List Pages','url'=>array('index')),
-	array('label'=>'Create Pages','url'=>array('create')),
-	array('label'=>'View Pages','url'=>array('view','id'=>$model->id)),
-	array('label'=>'Manage Pages','url'=>array('admin')),
+    array('label'=>'Список','icon'=>'list','url'=>array('index')),
+    array('label'=>'Создать','icon'=>'plus-sign','url'=>array('create')),
+    array('label'=>'Просмотр','icon'=>'eye-open','url'=>array('view','id'=>$model->id)),
+    array('label'=>'Управление','icon'=>'wrench','url'=>array('admin')),
 );
 ?>
 

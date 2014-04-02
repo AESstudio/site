@@ -1,10 +1,10 @@
 <?php
 $this->menu=array(
-	array('label'=>'List Pages','url'=>array('index')),
-	array('label'=>'Manage Pages','url'=>array('admin')),
+	array('label'=>'Список','icon'=>'list','url'=>array('index')),
+	array('label'=>'Управление','icon'=>'wrench','url'=>array('admin')),
 );
 ?>
 
-<h1>Create Pages</h1>
+<h2>Создание страницы</h2>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
