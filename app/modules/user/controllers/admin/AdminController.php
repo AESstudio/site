@@ -31,7 +31,7 @@ class AdminController extends SAdminController
 	{
 		return array(
 			array('allow',  // allow all roles to perform 'index' actions
-				'actions'=>array('index'),
+                'actions'=>array('index'),
 				'roles'=>array('indexUserAdmin'),
 			),
             array('allow',  // allow all roles to perform 'view' actions

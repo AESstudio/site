@@ -20,6 +20,8 @@ return array(
 		'application.components.*',
         'application.modules.user.*',
         'application.modules.user.models.*',
+        'ext.tinymce.*',
+        'ext.elFinder.*',
 	),
 
 	'modules'=>array(

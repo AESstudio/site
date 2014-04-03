@@ -12,7 +12,8 @@ class DefaultController extends SAdminController
     public function accessRules()
     {
         return array(
-            array('allow',
+            array('allow',  // allow all roles to perform 'index' actions
+                'actions'=>array('index'),
                 'roles'=>array('adminPanel'),
             ),
             array('deny',

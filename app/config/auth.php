@@ -17,6 +17,24 @@ $auth = array(
         'bizRule' => null,
         'data' => null
     ),
+    'ElFinderConnector' => array(
+        'type' => 0,    //CAuthItem::TYPE_OPERATION
+        'description' => 'Доступ к файловому менеджеру',
+        'bizRule' => null,
+        'data' => null
+    ),
+    'TinyMceCompressor' => array(
+        'type' => 0,    //CAuthItem::TYPE_OPERATION
+        'description' => 'Доступ к текстовуму редактору',
+        'bizRule' => null,
+        'data' => null
+    ),
+    'TinyMceSpellchecker' => array(
+        'type' => 0,    //CAuthItem::TYPE_OPERATION
+        'description' => 'Доступ к текстовуму редактору',
+        'bizRule' => null,
+        'data' => null
+    ),
 
 
     /* Роли */
@@ -50,7 +68,10 @@ $auth = array(
             6 => 'createVizitkaAdmin',
             7 => 'updateVizitkaAdmin',
             8 => 'adminVizitkaAdmin',
-            9 => 'deleteVizitkaAdmin'
+            9 => 'deleteVizitkaAdmin',
+            10 => 'ElFinderConnector',
+            11 => 'TinyMceCompressor',
+            12 => 'TinyMceSpellchecker'
         ),
     ),
     1 => array(
