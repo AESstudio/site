@@ -2,6 +2,12 @@
 
 return array(
     // Module Vizitka
+    'viewVizitkaPages' => array(
+        'type' => 0,
+        'description' => 'Доступ к просмотру страниц',
+        'bizRule' => null,
+        'data' => null
+    ),
     'indexVizitkaAdmin' => array(
         'type' => 0,
         'description' => 'Доступ к списку страниц',

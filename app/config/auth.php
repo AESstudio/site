@@ -42,7 +42,10 @@ $auth = array(
         'type' => 2,    //TYPE_ROLE
         'description' => 'Гость',
         'bizRule' => null,
-        'data' => null
+        'data' => null,
+        'children' => array(
+            0 => 'viewVizitkaPages'
+        )
     ),
     0 => array(
         'type' => 2,

@@ -2,7 +2,6 @@
 $this->pageTitle = 'Создание страницы';
 $this->menu=array(
 	array('label'=>'Список','icon'=>'list','url'=>array('index')),
-	array('label'=>'Управление','icon'=>'wrench','url'=>array('admin')),
 );
 ?>
 

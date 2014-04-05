@@ -17,7 +17,7 @@ echo "\$this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Список <?php echo $this->modelClass; ?>','icon'=>'list','url'=>array('index')),
 	array('label'=>'Создать <?php echo $this->modelClass; ?>','icon'=>'plus-sign','url'=>array('create')),
-	array('label'=>'Редактировать <?php echo $this->modelClass; ?>','icon'=>'pencil','url'=>array('update','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>)),
+	array('label'=>'Редактировать <?php echo $this->modelClass; ?>','icon'=>'edit','url'=>array('update','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>)),
 	array('label'=>'Удалить <?php echo $this->modelClass; ?>','icon'=>'trash','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model-><?php echo $this->tableSchema->primaryKey; ?>),'confirm'=>'Вы уверены, что хотите удалить данный элемент?')),
 	array('label'=>'Управление <?php echo $this->modelClass; ?>','icon'=>'wrench','url'=>array('admin')),
 );

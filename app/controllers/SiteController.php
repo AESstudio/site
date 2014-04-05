@@ -1,5 +1,8 @@
 <?php
 
+Yii::import('application.modules.vizitka.*');
+Yii::import('application.modules.vizitka.models.*');
+
 class SiteController extends Controller
 {
 	/**
@@ -8,9 +11,12 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+        $page=Pages::model()->find();
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$this->render('index',array(
+            'page'=>$page,
+        ));
 	}
 
 	/**

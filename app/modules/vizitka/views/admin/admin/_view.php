@@ -1,50 +1,13 @@
-<div class="view">
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id),array('view','id'=>$data->id)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('author')); ?>:</b>
-	<?php echo CHtml::encode($data->author); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('title')); ?>:</b>
-	<?php echo CHtml::encode($data->title); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('url')); ?>:</b>
-	<?php echo CHtml::encode($data->url); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('created')); ?>:</b>
-	<?php echo CHtml::encode($data->created); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('updated')); ?>:</b>
-	<?php echo CHtml::encode($data->updated); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('content')); ?>:</b>
-	<?php echo CHtml::encode($data->content); ?>
-	<br />
-
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
-	<?php echo CHtml::encode($data->status); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('meta_title')); ?>:</b>
-	<?php echo CHtml::encode($data->meta_title); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('meta_description')); ?>:</b>
-	<?php echo CHtml::encode($data->meta_description); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('meta_keywords')); ?>:</b>
-	<?php echo CHtml::encode($data->meta_keywords); ?>
-	<br />
-
-	*/ ?>
-
+<div class="btn-toolbar">
+    <?php $this->widget('bootstrap.widgets.TbButtonGroup', array(
+        'size'=>'large',
+        'buttons'=>array(
+            array('label'=>$data->title,'icon'=>'file','items'=>array(
+                array('label'=>'Просмотр','icon'=>'eye-open','url'=>array('view','id'=>$data->id)),
+                array('label'=>'Редактировать','icon'=>'edit','url'=>array('update','id'=>$data->id)),
+                '---',
+                array('label'=>'Удалить','icon'=>'trash','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$data->id),'confirm'=>'Вы уверены, что хотите удалить данный элемент?')),
+            )),
+        ),
+    )); ?>
 </div>

@@ -11,6 +11,8 @@ class LoginController extends Controller
 
     public $defaultAction = 'login';
 
+    public $layout = '/layouts/column1';
+
     /**
      * Displays the login page
      */

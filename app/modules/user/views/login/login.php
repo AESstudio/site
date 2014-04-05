@@ -6,25 +6,38 @@
 $this->pageTitle=Yii::app()->name . ' - Авторизация';
 ?>
 
-<h2>Авторизация</h2>
 
-<div class="form">
 
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'login-form',
-    'type'=>'horizontal',
 	'enableClientValidation'=>true,
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
 	),
 )); ?>
 
+<h2>Авторизация</h2>
 
-	<?php echo $form->textFieldRow($model,'username'); ?>
+<?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->passwordFieldRow($model,'password'); ?>
+<div class="text-error"><?php echo $form->error($model, 'username'); ?></div>
+<?php
+echo $form->textField($model, 'username', array(
+    'class' => 'input-block-level',
+    'placeholder' => "Логин",
+));
+?>
 
-	<?php echo $form->checkBoxRow($model,'rememberMe'); ?>
+
+<div class="text-error"><?php echo $form->error($model, 'password'); ?></div>
+<?php
+echo $form->passwordField($model, 'password', array(
+    'class' => 'input-block-level',
+    'placeholder' => "Пароль",
+));
+?>
+
+<?php echo $form->checkboxRow($model, 'rememberMe'); ?>
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
@@ -36,4 +49,3 @@ $this->pageTitle=Yii::app()->name . ' - Авторизация';
 
 <?php $this->endWidget(); ?>
 
-</div><!-- form -->

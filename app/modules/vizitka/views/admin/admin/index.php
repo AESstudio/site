@@ -1,7 +1,6 @@
 <?php
 $this->menu=array(
 	array('label'=>'Создать страницу','icon'=>'plus-sign','url'=>array('create')),
-	array('label'=>'Управление страницами','icon'=>'wrench','url'=>array('admin')),
 );
 ?>
 

@@ -24,13 +24,13 @@ class Pages extends CActiveRecord
     const STATUS_INACTIVE = 0;
     const STATUS_ACTIVE = 1;
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return 'vizitka_pages';
-	}
+    /**
+     * @return string the associated database table name
+     */
+    public function tableName()
+    {
+        return 'vizitka_pages';
+    }
 
     public static function itemAlias($type, $code = NULL)
     {
@@ -53,8 +53,7 @@ class Pages extends CActiveRecord
     {
         $date = date('Y-m-d H:i:s');
 
-        if($this->isNewRecord)
-        {
+        if ($this->isNewRecord) {
             $this->created = $date;
             $this->updated = $date;
         }
@@ -65,49 +64,49 @@ class Pages extends CActiveRecord
         return parent::beforeSave();
     }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
+    /**
+     * @return array validation rules for model attributes.
+     */
+    public function rules()
+    {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
+        return array(
             // Автор [[author]]
-            array('author','numerical'),
+            array('author', 'numerical'),
             // Заголовок [[title]]
-            array('title','required'),
-            array('title','length','max'=>255),
+            array('title', 'required'),
+            array('title', 'length', 'max' => 255),
             // URL [[url]]
             array('url', 'ext.translist.LocoTranslitFilter', 'translitAttribute' => 'title'),
-            array('username','match','pattern'=>'/^[a-zA-Z0-9_-]+$/',
+            array('username', 'match', 'pattern' => '/^[a-zA-Z0-9_-]+$/',
                 'message' => 'Недопустимый логин. </br>Логин может состоять из латинских символов,
                 цифр, дефиса или нижнего подчеркивания.',
-                'on'=>array('register', 'admin-create', 'admin-update')),
-            array('url','length','max'=>255),
+                'on' => array('register', 'admin-create', 'admin-update')),
+            array('url', 'length', 'max' => 255),
             // Дата создания [[created]]
             //array('created','date'),
             // Дата редактирования [[updated]]
             //array('updated','date'),
             // Содержание страницы [[status]]
-            array('content','required'),
-            array('content','length','max'=>16777215),
+            array('content', 'required'),
+            array('content', 'length', 'max' => 16777215),
             // Статус страницы [[status]]
-            array('status','numerical'),
+            array('status', 'numerical'),
             // Мета данные [[meta_title]]
-            array('meta_title','required'),
-            array('meta_title','length','max'=>255),
+            array('meta_title', 'required'),
+            array('meta_title', 'length', 'max' => 255),
             // Мета данные [[meta_description]]
-            array('meta_description','required'),
-            array('meta_description','length','max'=>255),
+            array('meta_description', 'required'),
+            array('meta_description', 'length', 'max' => 255),
             // Мета данные [[meta_keywords]]
-            array('meta_keywords','required'),
-            array('meta_keywords','length','max'=>255),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-			array('id, author, title, url, created, updated, content, status, meta_title, meta_description, meta_keywords', 'safe', 'on'=>'search'),
-		);
-	}
+            array('meta_keywords', 'required'),
+            array('meta_keywords', 'length', 'max' => 255),
+            // The following rule is used by search().
+            // @todo Please remove those attributes that should not be searched.
+            array('id, author, title, url, created, updated, content, status, meta_title, meta_description, meta_keywords', 'safe', 'on' => 'search'),
+        );
+    }
 
 
     /**
@@ -122,69 +121,85 @@ class Pages extends CActiveRecord
         );
     }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id' => 'ID',
-			'author' => 'Автор',
-			'title' => 'Заголовок',
-			'url' => 'Адрес страницы (URL)',
-			'created' => 'Создана',
-			'updated' => 'Обновлена',
-			'content' => 'Содержание',
-			'status' => 'Статус',
-			'meta_title' => 'Заголовок страницы (TITLE)',
-			'meta_description' => 'Описание страницы (DESCRIPTION)',
-			'meta_keywords' => 'Ключевые слова (KEYWORDS)',
-		);
-	}
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels()
+    {
+        return array(
+            'id' => 'ID',
+            'author' => 'Автор',
+            'title' => 'Заголовок',
+            'url' => 'Адрес страницы (URL)',
+            'created' => 'Создана',
+            'updated' => 'Обновлена',
+            'content' => 'Содержание',
+            'status' => 'Статус',
+            'meta_title' => 'Заголовок страницы (TITLE)',
+            'meta_description' => 'Описание страницы (DESCRIPTION)',
+            'meta_keywords' => 'Ключевые слова (KEYWORDS)',
+        );
+    }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     *
+     * Typical usecase:
+     * - Initialize the model fields with values from filter form.
+     * - Execute this method to get CActiveDataProvider instance which will filter
+     * models according to data in model fields.
+     * - Pass data provider to CGridView, CListView or any similar widget.
+     *
+     * @return CActiveDataProvider the data provider that can return the models
+     * based on the search/filter conditions.
+     */
+    public function search()
+    {
+        // @todo Please modify the following code to remove attributes that should not be searched.
 
-		$criteria=new CDbCriteria;
+        $criteria = new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('author',$this->author);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('url',$this->url,true);
-		$criteria->compare('created',$this->created,true);
-		$criteria->compare('updated',$this->updated,true);
-		$criteria->compare('content',$this->content,true);
-		$criteria->compare('status',$this->status);
-		$criteria->compare('meta_title',$this->meta_title,true);
-		$criteria->compare('meta_description',$this->meta_description,true);
-		$criteria->compare('meta_keywords',$this->meta_keywords,true);
+        $criteria->compare('id', $this->id);
+        $criteria->compare('author', $this->author);
+        $criteria->compare('title', $this->title, true);
+        $criteria->compare('url', $this->url, true);
+        $criteria->compare('created', $this->created, true);
+        $criteria->compare('updated', $this->updated, true);
+        $criteria->compare('content', $this->content, true);
+        $criteria->compare('status', $this->status);
+        $criteria->compare('meta_title', $this->meta_title, true);
+        $criteria->compare('meta_description', $this->meta_description, true);
+        $criteria->compare('meta_keywords', $this->meta_keywords, true);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
 
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return Pages the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
+    /**
+     * Returns the static model of the specified AR class.
+     * Please note that you should have this exact method in all your CActiveRecord descendants!
+     * @param string $className active record class name.
+     * @return Pages the static model class
+     */
+    public static function model($className = __CLASS__)
+    {
+        return parent::model($className);
+    }
+
+    public static function menu()
+    {
+        $models = self::model()->findAllByAttributes(array('status' => 1));
+
+        $array = array();
+
+        foreach ($models as $one) {
+            $array[] = array(
+                'label' => $one->title,
+                'url' => '/'.$one->url,
+            );
+        }
+
+        return $array;
+    }
 }
