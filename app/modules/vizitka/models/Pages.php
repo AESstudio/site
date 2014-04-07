@@ -187,17 +187,21 @@ class Pages extends CActiveRecord
         return parent::model($className);
     }
 
-    public static function menu()
+    public static function menu($url)
     {
         $models = self::model()->findAllByAttributes(array('status' => 1));
 
-        $array = array();
+        $array = '';
 
         foreach ($models as $one) {
-            $array[] = array(
-                'label' => $one->title,
-                'url' => '/'.$one->url,
-            );
+            if($url == $one['url']){
+                $array .= '<li class="active"><a href="' . $one['url'] . '">' . $one['title'] . '</a></li>';
+            }elseif($url == false){
+                $array .= '<li class="active"><a href="' . $one['url'] . '">' . $one['title'] . '</a></li>';
+                $url = ';';
+            }else{
+                $array .= '<li><a href="' . $one['url'] . '">' . $one['title'] . '</a></li>';
+            }
         }
 
         return $array;

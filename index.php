@@ -1,6 +1,6 @@
 <?php
 
-if($_SERVER['HTTP_HOST']=='site.ru'){
+if($_SERVER['HTTP_HOST']=='yii.ru'){
     // change the following paths if necessary
     $yii=dirname(__FILE__).'/framework/yiilite.php';
     $config=dirname(__FILE__).'/app/config/env-prod.php';

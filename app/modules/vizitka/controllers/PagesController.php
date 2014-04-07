@@ -45,7 +45,7 @@ class PagesController extends Controller
         $model=Pages::model()->find('url=:url', array(':url'=>$url));
 
         $this->render('view', array(
-            'model' => $model,
+            'model' => $this->loadModel($url),
         ));
 	}
 
@@ -54,9 +54,9 @@ class PagesController extends Controller
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer the ID of the model to be loaded
 	 */
-	public function loadModel($id)
+	public function loadModel($url)
 	{
-		$model=Pages::model()->findByPk($id);
+        $model=Pages::model()->find('url=:url', array(':url'=>$url));
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

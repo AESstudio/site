@@ -4,7 +4,7 @@ return array(
     ''=>'site/index',
     'login'=>'user/login',
     'logout'=>'user/login/logout',
-    'register'=>'user/register',
+    'register'=>'user/register/register',
     'admin'=>'admin/default/index',
 
     // Административный раздел

@@ -25,15 +25,15 @@ return CMap::mergeArray(
             ),
             'log'=>array(
                 'class'=>'CLogRouter',
-/*                'routes'=>array(
-                    array(
+                'routes'=>array(
+/*                    array(
                         // направляем результаты профайлинга в ProfileLogRoute (отображается
                         // внизу страницы)
                         'class'=>'CProfileLogRoute',
                         'levels'=>'profile',
                         'enabled'=>true,
-                    ),
-                ),*/
+                    ),*/
+                ),
             ),
         ),
     )
