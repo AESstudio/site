@@ -8,26 +8,22 @@ Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Site',
+	'name'=>'AES-Studio',
     'language'=>'ru',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array(
+        'log',
+        'bootstrap',
+    ),
 
 	// autoloading model and component classes
 	'import'=>array(
-		'application.models.*',
 		'application.components.*',
-        'application.modules.user.*',
-        'application.modules.user.models.*',
-        'ext.tinymce.*',
-        'ext.elFinder.*',
+
 	),
 
 	'modules'=>array(
-        'admin',
-        'user',
-        'vizitka',
         'sitemap'
 	),
 
@@ -63,5 +59,5 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'alexandr-syrovatskii@yandex.ru',
 	),
-    'theme'=>'default',
+    'theme'=>'aesstudio',
 );

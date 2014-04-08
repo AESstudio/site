@@ -6,11 +6,11 @@
     <meta name="description" content="<?php echo CHtml::encode($this->metaDescription); ?>">
     <meta name="keywords" content="<?php echo CHtml::encode($this->metaKeywords); ?>">
 
+
+    <title><?php echo CHtml::encode($this->pageTitle); ?></title>
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/styles.css"/>
     <link rel="stylesheet" type="text/css"
           href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/sticky-footer-navbar.css"/>
-
-    <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
     <?php Yii::app()->bootstrap->register(); ?>
 </head>
