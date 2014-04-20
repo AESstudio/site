@@ -5,7 +5,6 @@
  * Time: 22:06
  */
 $moduleUser = require(dirname(__FILE__).'/authModule/moduleUser.php');
-$moduleVizitka = require(dirname(__FILE__).'/authModule/moduleVizitka.php');
 
 $auth = array(
 
@@ -66,12 +65,6 @@ $auth = array(
             1 => 'adminPanel',
             2 => 'indexUserAdmin',
             3 => 'viewUserAdmin',
-            4 => 'indexVizitkaAdmin',
-            5 => 'viewVizitkaAdmin',
-            6 => 'createVizitkaAdmin',
-            7 => 'updateVizitkaAdmin',
-            8 => 'adminVizitkaAdmin',
-            9 => 'deleteVizitkaAdmin',
             10 => 'ElFinderConnector',
             11 => 'TinyMceCompressor',
             12 => 'TinyMceSpellchecker'
@@ -103,7 +96,6 @@ $auth = array(
 
 $result = array_merge(
     $moduleUser,
-    $moduleVizitka,
     $auth
 );
 

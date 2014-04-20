@@ -28,7 +28,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
             'class' => 'bootstrap.widgets.TbMenu',
             'items' => array(
                 array('label' => 'Пользователи', 'url' => '/admin/user/admin'),
-                array('label' => 'Визитка стр', 'url' => '/admin/vizitka/admin'),
+                array('label' => 'Категории', 'url' => '/admin/category/admin/tree'),
             ),
         ),
         array(

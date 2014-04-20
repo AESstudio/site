@@ -18,7 +18,7 @@ return CMap::mergeArray(
                 'connectionString' => 'mysql:host=localhost;dbname=yii',
                 'emulatePrepare' => true,
                 'username' => 'root',
-                'password' => 'pass123',
+                'password' => '',
                 'charset' => 'utf8',
                 'enableProfiling' => true,
                 'enableParamLogging' => true,

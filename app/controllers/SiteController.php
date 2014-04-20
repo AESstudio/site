@@ -3,41 +3,9 @@
 
 class SiteController extends Controller
 {
-    public $layout = '//layouts/column2';
-
-
     public function actionIndex()
     {
-        $this->layout = '//layouts/column1';
         $this->render('index');
-    }
-
-
-    public function actionMini()
-    {
-        $this->layout = '//layouts/column2';
-        $this->render('mini');
-    }
-
-
-    public function actionVizitka()
-    {
-        $this->layout = '//layouts/column2';
-        $this->render('vizitka');
-    }
-
-
-    public function actionCorporation()
-    {
-        $this->layout = '//layouts/column2';
-        $this->render('corporation');
-    }
-
-
-    public function actionE_Shop()
-    {
-        $this->layout = '//layouts/column2';
-        $this->render('e_shop');
     }
 
 
@@ -49,11 +17,5 @@ class SiteController extends Controller
             else
                 $this->render('error', $error);
         }
-    }
-
-
-    public function actionLogin()
-    {
-        $this->redirect('/login');
     }
 }

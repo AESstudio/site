@@ -19,11 +19,17 @@ return array(
 
 	// autoloading model and component classes
 	'import'=>array(
-		'application.components.*',
-
+        'application.models.*',
+        'application.components.*',
+        'application.modules.user.*',
+        'application.modules.user.models.*',
+        'ext.tinymce.*',
+        'ext.elFinder.*',
 	),
 
 	'modules'=>array(
+        'admin',
+        'user',
         'sitemap'
 	),
 
@@ -59,5 +65,5 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'alexandr-syrovatskii@yandex.ru',
 	),
-    'theme'=>'aesstudio',
+    'theme'=>'default',
 );
