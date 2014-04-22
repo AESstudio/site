@@ -143,13 +143,13 @@ $(function () {
                           		layout: 'center',
                           		theme: 'defaultTheme',
                               buttons: [
-                                {addClass: 'btn btn-primary', text: 'Yes,Delete!', onClick: function($noty) {
+                                {addClass: 'btn btn-primary', text: 'Да, удалить!', onClick: function($noty) {
                                     jQuery("#" + JsTreeBehavior.container_ID).jstree("remove", obj);
                                     $noty.close();
-                                    noty({dismissQueue: true, force: true, layout: 'center', theme: 'defaultTheme', text: 'You just deleted '+(obj).attr('rel'), type: 'success'});
+                                    noty({dismissQueue: true, force: true, layout: 'center', theme: 'defaultTheme', text: 'Вы только что удалили '+(obj).attr('rel'), type: 'success'});
                                   }
                                 },
-                                {addClass: 'btn btn-danger', text: 'Cancel', onClick: function($noty) {
+                                {addClass: 'btn btn-danger', text: 'Отмена', onClick: function($noty) {
                                     $noty.close();
                                    // noty({dismissQueue: true, force: true, layout: layout, theme: 'defaultTheme', text: 'You clicked "Cancel" button', type: 'error'});
                                   }

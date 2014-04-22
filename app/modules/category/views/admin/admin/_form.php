@@ -15,17 +15,17 @@
   -->
 
 <?php if ($model->isNewRecord) : ?>
-<h3><?php echo Yii::t('global', 'Create') ?> <?php echo Yii::t('global', $modelClassName) ?></h3>
+<h3><?php echo Yii::t('global', 'Создавать') ?> <?php echo Yii::t('global', $modelClassName) ?></h3>
 <?php elseif (!$model->isNewRecord): ?>
-<h3><?php echo Yii::t('global', 'Update') ?> <?php echo Yii::t('global', $modelClassName) ?></h3>
+<h3><?php echo Yii::t('global', 'Обновить') ?> <?php echo Yii::t('global', $modelClassName) ?></h3>
 <?php endif; ?>
 
 <p> <h2><?php //echo $model->name;?></h2><p>
 
-<?php      $val_error_msg = Yii::t('global', "Error.$modelClassName  was not saved.");
+<?php      $val_error_msg = Yii::t('global', "Ошибка.$modelClassName  не был сохранен.");
                    $val_success_message = ($model->isNewRecord) ?
-                   Yii::t('global', "$modelClassName has been created successfully.") :
-                    Yii::t('global', "$modelClassName  has been updated successfully.");
+                   Yii::t('global', "$modelClassName была успешно создана.") :
+                    Yii::t('global', "$modelClassName  была успешно обновлена.");
 ?>
 
 <div id="success-note" class="alert alert-success"
@@ -67,12 +67,12 @@
 
     <?php
          echo $form->errorSummary($model,
-                                                                     '<div style="font-weight:bold">Please correct these errors:</div>',
+                                                                     '<div style="font-weight:bold">Пожалуйста, исправьте эти ошибки:</div>',
                                                                       NULL,
                                                                       array('class' => 'alert alert-error')
 );
     ?>
-    <p class="note">Fields with <span class="required">*</span> are required.</p>
+    <p class="note"><span class="required">*</span> Обязательные поля.</p>
     <fieldset>
 
 

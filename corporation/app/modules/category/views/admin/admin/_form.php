@@ -15,17 +15,17 @@
   -->
 
 <?php if ($model->isNewRecord) : ?>
-<h3><?php echo Yii::t('global', 'Create') ?> <?php echo Yii::t('global', $modelClassName) ?></h3>
+<h3>Создать категорию</h3>
 <?php elseif (!$model->isNewRecord): ?>
-<h3><?php echo Yii::t('global', 'Update') ?> <?php echo Yii::t('global', $modelClassName) ?></h3>
+<h3>Обновить категорию</h3>
 <?php endif; ?>
 
 <p> <h2><?php //echo $model->name;?></h2><p>
 
-<?php      $val_error_msg = Yii::t('global', "Error.$modelClassName  was not saved.");
+<?php      $val_error_msg = "Ошибка. Категория не была сохранена.";
                    $val_success_message = ($model->isNewRecord) ?
-                   Yii::t('global', "$modelClassName has been created successfully.") :
-                    Yii::t('global', "$modelClassName  has been updated successfully.");
+                   "Категория была успешно создана." :
+                    "Категория  была успешно обновлена.";
 ?>
 
 <div id="success-note" class="alert alert-success"
@@ -67,12 +67,12 @@
 
     <?php
          echo $form->errorSummary($model,
-                                                                     '<div style="font-weight:bold">Please correct these errors:</div>',
+                                                                     '<div style="font-weight:bold">Пожалуйста, исправьте ошибки:</div>',
                                                                       NULL,
                                                                       array('class' => 'alert alert-error')
 );
     ?>
-    <p class="note">Fields with <span class="required">*</span> are required.</p>
+    <p class="note"><span class="required">*</span> Обязательные поля.</p>
     <fieldset>
 
 
@@ -105,8 +105,8 @@
                value="<?php echo $model->id; ?>"/>
         <?php endif; ?>
         <div class="control-group">
-            <?php   echo CHtml::submitButton($model->isNewRecord ? Yii::t('global', 'Submit')
-                                                     : Yii::t('global', 'Save'),
+            <?php   echo CHtml::submitButton($model->isNewRecord ? 'Создать'
+                                                     : 'Сохранить',
                                              array('class' => 'btn btn-large pull-right')); ?>
         </div>
 </fieldset>
@@ -115,3 +115,4 @@
 <!-- form -->
 
 
+node is already a root. roots are ordered by primary key

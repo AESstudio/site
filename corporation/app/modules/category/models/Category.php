@@ -80,8 +80,8 @@ class Category extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'name' => 'Name',
-			'description' => 'Description',
+			'name' => 'Имя',
+			'description' => 'Описание',
 		);
 	}
 

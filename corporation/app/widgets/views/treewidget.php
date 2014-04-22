@@ -13,10 +13,11 @@
   * @version 1.0.0
   */
   -->
+
 <div class="span8">
     <div class="row">
-        <input id="reload" type="button" value="Refresh" class="btn btn-large pull-left">
-        <input id="add_root" type="button" value="Create Root" class="btn btn-large pull-left">
+        <input id="reload" type="button" value="Обновить" class="btn btn-large pull-left">
+        <input id="add_root" type="button" value="Создать категорию" class="btn btn-large pull-left">
     </div>
     <div class="row">
         <!--The tree will be rendered in this div-->

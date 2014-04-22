@@ -5,7 +5,7 @@
  * Time: 22:06
  */
 $moduleUser = require(dirname(__FILE__).'/authModule/moduleUser.php');
-$moduleVizitka = require(dirname(__FILE__).'/authModule/moduleVizitka.php');
+$moduleCategory = require(dirname(__FILE__).'/authModule/moduleCategory.php');
 
 $auth = array(
 
@@ -103,7 +103,7 @@ $auth = array(
 
 $result = array_merge(
     $moduleUser,
-    $moduleVizitka,
+    $moduleCategory,
     $auth
 );
 
