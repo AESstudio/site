@@ -78,4 +78,13 @@ class AdminController extends SAdminController
             Yii::app()->end();
         }
     }
+
+    public function actionAll()
+    {
+        //$model = JsTreeBehavior::printULTree();
+
+        $this->render('all',array(
+            //'model'=>$model,
+        ));
+    }
 }

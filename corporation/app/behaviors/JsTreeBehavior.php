@@ -297,7 +297,7 @@ class JsTreeBehavior extends CBehavior
             if ($category->level == $level)
                 echo CHtml::closeTag('li') . "\n";
             else if ($category->level > $level)
-                echo CHtml::openTag('ul') . "\n";
+                echo CHtml::openTag('ul',array('style'=>'nav nav-list')) . "\n";
             else {
                 echo CHtml::closeTag('li') . "\n";
 

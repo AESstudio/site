@@ -1,12 +1,3 @@
 .idea
 assets/*
-!assets/.gitignore
-framework/*
-!framework/.gitignore
-app/runtime/*
-!app/runtime/.gitignore
-app/data/*.db
-app/tests/report/*
-!app/tests/report/.gitignore
-app/config/env-dev.php
 app/config/env-prod.php

@@ -28,7 +28,7 @@
             		'rgt',
             		'level',
             		'name',
-            		'description',
+            		'url',
         ),
 )); ?>
 </div>

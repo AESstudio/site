@@ -89,10 +89,10 @@
         </div>
 
         <div class="control-group">
-            <?php echo $form->labelEx($model, 'description', array('class' => 'control-label')); ?>
+            <?php echo $form->labelEx($model, 'url', array('class' => 'control-label')); ?>
             <div class="controls">
-                <?php echo $form->textArea($model, 'description', array('class' => 'span4', 'rows' => 5, 'cols' => 50)); ?>
-                <p class="help-block"><?php echo $form->error($model, 'description'); ?></p>
+                <?php echo $form->textField($model, 'url', array('class' => 'span4', 'rows' => 5, 'cols' => 50)); ?>
+                <p class="help-block"><?php echo $form->error($model, 'url'); ?></p>
             </div>
         </div>
 
